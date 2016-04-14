@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="row"><h1 class="col-xs-4 col-xs-offset-4">Liste des chatons</h1></div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Chatons</th>
+            <th>Miaule</th>
+            <th>Mange</th>
+        </tr>
+    </thead>
+    <td>
+        {% for chat in chats %}
+            <tbody>
+                <td>{{ chat.id }}</td>
+                <td>{{ chat.name }}</td>
+                <td><a href="{{ path('miaule', { 'id': chat.id }) }}"><input
+                        class="btn btn-success" class="btn btn-default" type="submit" value="MIAULE"></a></td>
+                <td><a href="{{ path('mange', { 'id': chat.id }) }}"><input
+                        class="btn btn-success" class="btn btn-default" type="submit" value="MANGE"></a></td>
+
+        {% endfor %}
+         </tbody>
+    </td>
+</table>
+
+{% endblock %}
+
